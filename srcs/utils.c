@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 13:02:14 by mbucci            #+#    #+#             */
-/*   Updated: 2022/01/03 11:29:54 by mbucci           ###   ########.fr       */
+/*   Updated: 2022/01/06 15:47:30 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_atoi(char *str, t_stock *ptr, char **tab)
 		if (str[i] > 57 || str[i] < 48)
 			free_error(ptr, NULL);
 		n = n * 10 + (str[i++] - 48);
-		if (n > 2147483647)
+		if ((n > 2147483647 && s == 1) || (n > 2147483648 && s == -1))
 			free_and_close(tab, ptr);
 	}
 	return (n * s);

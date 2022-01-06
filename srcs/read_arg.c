@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 00:45:42 by mbucci            #+#    #+#             */
-/*   Updated: 2021/12/29 14:25:18 by mbucci           ###   ########.fr       */
+/*   Updated: 2022/01/06 16:01:52 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	get_stack(t_stock *a, int ac, char **args)
 		j = -1;
 		check_arg(args[i], a);
 		tab = ft_split(args[i], 32);
+		if (!tab)
+			free_error(a, NULL);
 		while (tab[++j])
 		{
-			a->next = NULL;
 			a->val = ft_atoi(tab[j], a, tab);
-			a->index = 0;
 			if (!tab[j + 1] && !args[i + 1])
 				break ;
 			a->next = (t_stock *)malloc(sizeof(t_stock));
