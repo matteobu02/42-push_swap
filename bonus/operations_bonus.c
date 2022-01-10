@@ -6,7 +6,7 @@
 /*   By: mbucci <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/01 14:12:04 by mbucci            #+#    #+#             */
-/*   Updated: 2022/01/01 14:12:42 by mbucci           ###   ########.fr       */
+/*   Updated: 2022/01/10 18:23:53 by mbucci           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	swap(t_stock **ptr, char *msg)
 {
 	t_stock	*temp;
 
-	if (!ptr || !*ptr)
+	if (!ptr || !*ptr || !(*ptr)->next)
 		return ;
 	temp = *ptr;
 	*ptr = (*ptr)->next;
@@ -45,7 +45,7 @@ void	rotate(t_stock **ptr, char *msg)
 	t_stock	*temp1;
 	t_stock	*temp2;
 
-	if (!ptr || !*ptr)
+	if (!ptr || !*ptr || !(*ptr)->next)
 		return ;
 	temp1 = *ptr;
 	*ptr = (*ptr)->next;
@@ -63,7 +63,7 @@ void	reverse_rotate(t_stock **ptr, char *msg)
 {
 	t_stock	*temp;
 
-	if (!ptr || !*ptr)
+	if (!ptr || !*ptr || !(*ptr)->next)
 		return ;
 	temp = *ptr;
 	while (temp->next->next)
